@@ -15,3 +15,4 @@ p = float((a+b+c)/2)
 s = sqrt(p*((p-a)*(p-b)*(p-c)))
 
 print("Площадь треугольника = ", round(s, 2))
+
