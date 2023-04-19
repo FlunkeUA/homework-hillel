@@ -10,7 +10,7 @@ a = float(input("Сторона А = "))
 b = float(input("Сторона Б = "))
 c = float(input("Сторона В = "))
 
-p = float((a+b+c)/2)
+p = ((a+b+c)/2)
 
 s = sqrt(p*((p-a)*(p-b)*(p-c)))
 
