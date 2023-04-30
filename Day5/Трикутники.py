@@ -24,7 +24,7 @@ for x in range(1, N + 1):
 
 print("")
 
-for x in range(N, -1, -1):
+for x in range(N, 0, -1):
     for y in range(N, 0, -1):
         if y > x:
             print(" ", end=' ')
