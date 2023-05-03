@@ -1,7 +1,7 @@
 print("Перевірка на поліндром/не поліндром")
 word = input("Введіть текст: ").lower()
 re_word = word[::-1].lower()
-print("палиндром" if re_word == word else "не палиндром")
+print("+" if re_word == word else "-")
 
 print("\nЗнайти слово в тексті")
 text = input("Введіть текст: ").lower()
