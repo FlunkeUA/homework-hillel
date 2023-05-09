@@ -38,7 +38,7 @@
 # print("No" if "." not in email or "@" not in email else "Yes")
 
 entered_list = input("Введите список чисел, разделенных пробелом: ").split()
+entered_list.extend('10')
 A = list(map(int, entered_list))
-A.extend('10')
 
 print("Введенный список:", A)
