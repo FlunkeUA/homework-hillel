@@ -37,8 +37,10 @@
 # email = input("Введіть email: ").lower()
 # print("No" if "." not in email or "@" not in email else "Yes")
 
-entered_list = input("Введите список чисел, разделенных пробелом: ").split()
-entered_list.extend('10')
-A = list(map(int, entered_list))
+N = input('Введіть число: ')
 
-print("Введенный список:", A)
+B = input("Введіть " + N + " чисел, через пробіл: ").split()
+#B = list(map(int, numbers))
+B.reverse()
+
+print(' '.join(B))
