@@ -37,10 +37,19 @@
 # email = input("Введіть email: ").lower()
 # print("No" if "." not in email or "@" not in email else "Yes")
 
-N = input('Введіть число: ')
+N = input("Введіть п'ять чисел, через пробіл: ").split()
+A = list(map(int, N))
+C = []
 
-B = input("Введіть " + N + " чисел, через пробіл: ").split()
-#B = list(map(int, numbers))
-B.reverse()
+for i in A:
+    if i > 5:
+        C.append(i)
 
-print(' '.join(B))
+print("Всі числа:",*A, "\nЧисла білше п`яти:",*C)
+
+
+
+# A = [1,2,3]
+# i = [4,5,6]
+# B = A.insert(i,0)
+# print(B)

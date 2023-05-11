@@ -33,22 +33,25 @@ print("\nЗавдання 4: ")
 
 N = input('Введіть число: ')
 
-B = input("Введіть " + N + " чисел, через пробіл: ").split()
-#B = list(map(int, numbers))
-B.reverse()
+numbers = input("Введіть " + N + " чисел, через пробіл: ").split()
+A = list(map(int, numbers))
+A.reverse()
 
-print(' '.join(B))
+print(*A)
 
 print("\nЗавдання 5: ")
 #Запросити користувача 5 чисел і записати їх до списку A
 #Записати всі числа зі списку A які більше 5 до списку C
 
 N = input("Введіть п'ять чисел, через пробіл: ").split()
-B = list(map(int, N))
+A = list(map(int, N))
+C = []
 
-for i in B:
+for i in A:
     if i > 5:
-        print(i, end=" ")
+        C.append(i)
+
+print("Всі числа:",*A, "\nЧисла білше п`яти:",*C)
 
 print("\nЗавдання 6: ")
 # Запросити у користувача число N
@@ -68,8 +71,7 @@ for i in range(len(A)):
     if A[i]<min_value:
         min_value=A[i]
 
-print ("Найбільший елемент =", max_value)
-print ("Найменьший елемент =", min_value)
+print ("Найбільший елемент =", max_value, "\nНайменьший елемент =", min_value)
 
 print("\nЗавдання 7: ")
 # Користувач вводить текст потрібно вивести кількість цифр у цьому тексті
