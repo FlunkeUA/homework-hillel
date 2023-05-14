@@ -37,17 +37,20 @@
 # email = input("Введіть email: ").lower()
 # print("No" if "." not in email or "@" not in email else "Yes")
 
-N = input("Введіть п'ять чисел, через пробіл: ").split()
-A = list(map(int, N))
-C = []
+# N = input("Введіть п'ять чисел, через пробіл: ").split()
+# A = list(map(int, N))
+# C = []
+#
+# for i in A:
+#     if i > 5:
+#         C.append(i)
+#
+# print("Всі числа:",*A, "\nЧисла білше п`яти:",*C)
 
-for i in A:
-    if i > 5:
-        C.append(i)
-
-print("Всі числа:",*A, "\nЧисла білше п`яти:",*C)
-
-
+print("Я - УКРАЇНЕЦЬ!")
+print("Отже, я люблю БОРЩ!")
+print("БОРЩ "+50)
+print("Хочу ще...")
 
 # A = [1,2,3]
 # i = [4,5,6]
