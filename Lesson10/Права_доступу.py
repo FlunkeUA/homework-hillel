@@ -1,3 +1,4 @@
+
 # Вірус пошкодив систему доступу до файлів. Відомо, що над кожним файлом можна робити певні дії:
 # запис – W;
 # читання – R;
@@ -10,8 +11,6 @@
 # m запитів виду "операція файл".
 #
 # Для кожного припустимого запиту програма має повертати OK, для неприпустимого – Access denied.
-#
-#
 #
 # Приклад введення:
 #
@@ -34,3 +33,54 @@
 # OK
 # OK
 # OK
+
+# N = int(input('Введіть число яке треба порахувати: '))
+# A = list(input("іменами файлів та допустимими операціями:"))
+
+# file_numbers = N
+# file_name = F
+# file_operations = O
+
+# files = {
+#     'John': {
+#         'Full Name': 'John John',
+#         'Phone number': '+3806669555555',
+#         'Mark': 99
+#     },
+#     'Bob': {
+#         'Full Name': 'asdasd',
+#         'Phone number': '+112312412512',
+#         'Mark': 79
+#     },
+# }
+#
+# while True:
+#     choice = input('Додати файли та можливі операції? Введіть: Так/Ні - ')
+#     if choice == 'Так':
+#         file_numbers = input('кількість файлів: ')
+#         file_name = input('іменами файлів: ')
+#         file_operations = input('допустимими операціями: ')
+#         files[name] = {
+#             'Full Name': full_name,
+#             'Phone number': phone_number,
+#             'Mark': mark
+#         }
+#     elif choice == '2':
+#         break
+
+files = {}
+
+for i in range(int(input('кількість файлів: '))):
+    k, v = input('Name:'), input('Operation:')
+    files[k] = v
+
+print(files)
+
+new_files = files
+
+for i in range(int(input('кількість файлів: '))):
+    k, v = input('Name:'), input('Operation:')
+    if k and v in new_files:
+        print("Ok")
+    else:
+        print("Error")

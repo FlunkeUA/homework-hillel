@@ -47,12 +47,44 @@
 #
 # print("Всі числа:",*A, "\nЧисла білше п`яти:",*C)
 
-print("Я - УКРАЇНЕЦЬ!")
-print("Отже, я люблю БОРЩ!")
-print("БОРЩ "+50)
-print("Хочу ще...")
+# print("Я - УКРАЇНЕЦЬ!")
+# print("Отже, я люблю БОРЩ!")
+# print("БОРЩ "+50)
+# print("Хочу ще...")
 
 # A = [1,2,3]
 # i = [4,5,6]
 # B = A.insert(i,0)
 # print(B)
+
+
+
+students = {
+    'John': {
+        'Full Name': 'John John',
+        'Phone number': '+3806669555555',
+        'Mark': 99
+    },
+    'Bob': {
+        'Full Name': 'asdasd',
+        'Phone number': '+112312412512',
+        'Mark': 79
+    },
+}
+
+while True:
+    choice = input('> ')
+    if choice == '1':
+        name = input('Enter your name: ')
+        full_name = input('Enter your full name: ')
+        phone_number = input('Enter your full name: ')
+        mark = int(input('Enter your mark: '))
+        students[name] = {
+            'Full Name': full_name,
+            'Phone number': phone_number,
+            'Mark': mark
+        }
+    elif choice == '2':
+        break
+
+print(*students)
