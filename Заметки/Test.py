@@ -109,6 +109,8 @@ for i in range(int(input('кількість файлів: '))):
 print(files)
 
 new_files = files
+r = read
+
 
 for i in range(int(input('кількість запитів: '))):
     files_names, files_operations = input('Name: '), input('Operation: ')

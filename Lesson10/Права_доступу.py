@@ -69,21 +69,28 @@
 #         break
 
 files = {}
-# file_names = files.keys()
-# files_operations = files.values()
 
-for i in range(int(input('Введіть кількість файлів: '))):
-    files_names, *files_operations = input('Введіть імя файлу:'), input('Введіть потрібні операції через пробіл:')
+for i in range(int(input('кількість файлів: '))):
+    files_names, files_operations = input('Name: '), input('Operation: ').split(' ')
     files[files_names] = files_operations
+    files: {
+        files_names: [files_operations]
+    }
 
 print(files)
 
 new_files = files
+k = 0
 
-for i in range(int(input('Введіть кількість запитів: '))):
-    files_names, files_operations = input('Введіть імя файлу:'), input('Введіть потрібні операції через пробіл:')
-    new_files[files_names] = files_operations
-    if files_names in new_files and files_operations in new_files.files_names(files_operations):
+for i in range(int(input('кількість запитів: '))):
+    files_names, files_operations = input('Name: '), input('Operation: ')
+    if files_names in new_files and files_operations[0] in new_files[files_names]:
+        k += 1
+
+for k in range(k):
+    if k + 1:
         print("Ok")
     else:
         print("Access denied")
+
+
