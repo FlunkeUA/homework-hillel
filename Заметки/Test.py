@@ -97,24 +97,80 @@
 #
 # print(arr)
 
-files = {}
+# files = {}
+#
+# for i in range(int(input('кількість файлів: '))):
+#     files_names, files_operations = input('Name: '), input('Operation: ').split(' ')
+#     files[files_names] = files_operations
+#     files: {
+#         files_names: [files_operations]
+#     }
+#
+# print(files)
+#
+# new_files = files
+# r = read
+#
+#
+# for i in range(int(input('кількість запитів: '))):
+#     files_names, files_operations = input('Name: '), input('Operation: ')
+#     if files_names in new_files and files_operations in new_files[files_names]:
+#         print("Ok")
+#     else:
+#         print("Access denied")
 
-for i in range(int(input('кількість файлів: '))):
-    files_names, files_operations = input('Name: '), input('Operation: ').split(' ')
-    files[files_names] = files_operations
-    files: {
-        files_names: [files_operations]
-    }
+# files = {}
+# k = 0
+# d = 0
+# count = 0
+#
+# for i in range(int(input('number of files: '))):
+#     name, *operations = input('names and optoins: ').split(' ')
+#     files[name] = operations
+# print(files)
+#
+# for i in range(int(input('number of use: '))):
+#     operation, name = input('names and optoins: ').split(' ')
+#     if operation == 'read':
+#         if 'r' in files[name]:
+#             k += 1
+#         if 'r' not in files[name]:
+#             d += 1
+#     elif operation == 'write':
+#         if 'w' in files[name]:
+#             k += 1
+#         if 'w' not in files[name]:
+#             d += 1
+#     elif operation == 'execute':
+#         if 'x' in files[name]:
+#             True
+#         if 'x' not in files[name]:
+#             d += 1
+#
+#
+# # print(count)
+#
+# for k in range(1):
+#     if k + 1:
+#         print('OK')
+#     if d + 1:
+#         print('Access denied')
 
-print(files)
+# files = {}
+#
+# for i in range(int(input('Кількість файлів: '))):
+#     files_name, *files_operations = input("Імя файлу та допустимі опреації через пробіл: ").split()
+#     files[files_name] = files_operations
+#
+# operation_options = {'read':'r','write':'w','execute':'x'}
+#
+# for i in range(int(input('Кількість запитів до файлів: '))):
+#     files_operations, files_name = input("Необхідна опреація та імя файлу  через пробіл: ").split()
+#     print('OK' if operation_options[files_operations] in files[files_name] else 'Access denied')
 
-new_files = files
-r = read
-
-
-for i in range(int(input('кількість запитів: '))):
-    files_names, files_operations = input('Name: '), input('Operation: ')
-    if files_names in new_files and files_operations in new_files[files_names]:
-        print("Ok")
-    else:
-        print("Access denied")
+lst =input().split()
+l = []
+for i in lst:
+    if lst.count(i)!=1 and i not in l :
+        l.append(i)
+print(' '.join(l))
