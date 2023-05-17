@@ -59,32 +59,60 @@
 
 
 
-students = {
-    'John': {
-        'Full Name': 'John John',
-        'Phone number': '+3806669555555',
-        'Mark': 99
-    },
-    'Bob': {
-        'Full Name': 'asdasd',
-        'Phone number': '+112312412512',
-        'Mark': 79
-    },
-}
+# students = {
+#     'John': {
+#         'Full Name': 'John John',
+#         'Phone number': '+3806669555555',
+#         'Mark': 99
+#     },
+#     'Bob': {
+#         'Full Name': 'asdasd',
+#         'Phone number': '+112312412512',
+#         'Mark': 79
+#     },
+# }
+#
+# while True:
+#     choice = input('> ')
+#     if choice == '1':
+#         name = input('Enter your name: ')
+#         full_name = input('Enter your full name: ')
+#         phone_number = input('Enter your full name: ')
+#         mark = int(input('Enter your mark: '))
+#         students[name] = {
+#             'Full Name': full_name,
+#             'Phone number': phone_number,
+#             'Mark': mark
+#         }
+#     elif choice == '2':
+#         break
+#
+# print(*students)
 
-while True:
-    choice = input('> ')
-    if choice == '1':
-        name = input('Enter your name: ')
-        full_name = input('Enter your full name: ')
-        phone_number = input('Enter your full name: ')
-        mark = int(input('Enter your mark: '))
-        students[name] = {
-            'Full Name': full_name,
-            'Phone number': phone_number,
-            'Mark': mark
-        }
-    elif choice == '2':
-        break
+# arr = {}
+#
+# for i in range(int(input())):
+#     k, v = input().split(' ', 1)
+#     arr[k] = v
+#
+# print(arr)
 
-print(*students)
+files = {}
+
+for i in range(int(input('кількість файлів: '))):
+    files_names, files_operations = input('Name: '), input('Operation: ').split(' ')
+    files[files_names] = files_operations
+    files: {
+        files_names: [files_operations]
+    }
+
+print(files)
+
+new_files = files
+
+for i in range(int(input('кількість запитів: '))):
+    files_names, files_operations = input('Name: '), input('Operation: ')
+    if files_names in new_files and files_operations in new_files[files_names]:
+        print("Ok")
+    else:
+        print("Access denied")
