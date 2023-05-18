@@ -156,21 +156,24 @@
 #     if d + 1:
 #         print('Access denied')
 
-# files = {}
-#
-# for i in range(int(input('Кількість файлів: '))):
-#     files_name, *files_operations = input("Імя файлу та допустимі опреації через пробіл: ").split()
-#     files[files_name] = files_operations
-#
-# operation_options = {'read':'r','write':'w','execute':'x'}
-#
-# for i in range(int(input('Кількість запитів до файлів: '))):
-#     files_operations, files_name = input("Необхідна опреація та імя файлу  через пробіл: ").split()
-#     print('OK' if operation_options[files_operations] in files[files_name] else 'Access denied')
+files = {}
+result = []
 
-lst =input().split()
-l = []
-for i in lst:
-    if lst.count(i)!=1 and i not in l :
-        l.append(i)
-print(' '.join(l))
+for i in range(int(input('Кількість файлів: '))):
+    files_name, *files_operations = input("Імя файлу та допустимі опреації через пробіл: ").split()
+    files[files_name] = files_operations
+
+operation_options = {'read':'R','write':'W','execute':'X'}
+
+for i in range(int(input('Кількість запитів до файлів: '))):
+    files_operations, files_name = input("Необхідна опреація та імя файлу  через пробіл: ").split()
+    result.append('OK') if operation_options[files_operations] in files[files_name] else result.append('Access denied')
+
+print('\n'.join(result))
+
+# lst =input().split()
+# l = []
+# for i in lst:
+#     if lst.count(i)!=1 and i not in l :
+#         l.append(i)
+# print(' '.join(l))
