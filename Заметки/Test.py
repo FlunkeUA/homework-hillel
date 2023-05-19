@@ -159,17 +159,24 @@
 files = {}
 result = []
 
-for i in range(int(input('Кількість файлів: '))):
-    files_name, *files_operations = input("Імя файлу та допустимі опреації через пробіл: ").split()
-    files[files_name] = files_operations
+# Files_names = F_n = Імя файлу
+# Files_operation = F_o = допустимі опреації
+# Operation_options = O_o = словарь где ключ это слово, а значение его буквенный вариант
+# necessary_operation = N_o = Необхідна опреація
 
-operation_options = {'read':'R','write':'W','execute':'X'}
+for i in range(int(input('Кількість файлів: '))):
+    F_n, *F_o = input("Імя файлу та допустимі опреації через пробіл: ").split()
+    files[F_n] = F_o
+
+O_o = {'read':'R','write':'W','execute':'X'}
 
 for i in range(int(input('Кількість запитів до файлів: '))):
-    files_operations, files_name = input("Необхідна опреація та імя файлу  через пробіл: ").split()
-    result.append('OK') if operation_options[files_operations] in files[files_name] else result.append('Access denied')
+    F_o, F_n = input("Необхідна опреація та імя файлу через пробіл: ").split()
+    F_o = F_o.upper().lower()
+    result.append('OK') if O_o.get(F_o, 'Access denied') in files.get(F_n, 'Access denied') else result.append('Access denied')
 
 print('\n'.join(result))
+
 
 # lst =input().split()
 # l = []
@@ -177,3 +184,4 @@ print('\n'.join(result))
 #     if lst.count(i)!=1 and i not in l :
 #         l.append(i)
 # print(' '.join(l))
+
