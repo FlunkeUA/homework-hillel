@@ -13,7 +13,7 @@ num_request = int(input('Кількість запитів до файлів: ')
 for i in range(num_request):
     Necessary_operation, Files_names = input("Необхідна опреація та імя файлу через пробіл: ").split()
     Necessary_operation = Necessary_operation.upper().lower()
-    if Operation_options.get(Necessary_operation) in files.get(Files_names, 'Access denied'):
+    if Operation_options.get(Necessary_operation) in files.get(Files_names, ""):
         print("Ok")
     else:
         print('Access denied')
