@@ -202,9 +202,9 @@ import re
 #
 # print(*change_case(B))
 
-d = {'Read': 'r', 'wriTe': 'W', 'execute': 'X'}
-d = dict([[k.upper().lower(), v.upper()] for k, v in d.items()])
-print(d)
+# d = {'Read': 'r', 'wriTe': 'W', 'execute': 'X'}
+# d = dict([[k.upper().lower(), v.upper()] for k, v in d.items()])
+# print(d)
 
 # b = str(input())
 # b = b.upper().lower()
@@ -217,3 +217,11 @@ print(d)
 #
 # a = "a"
 # print(a.isupper())
+
+A = ["FirstItem", "FriendsList", "MyTuple"]
+A = ','.join(A)
+A = A.replace('FirstItem,FriendsList,MyTuple', "first_item friends_list my_tuple")
+A = A.split()
+
+print(A)
+

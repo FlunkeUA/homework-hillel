@@ -20,3 +20,9 @@ print(*B.difference(A))
 #
 # Результат після перетворення:
 # ["first_item", "friends_list", "my_tuple"]
+A = ["FirstItem", "FriendsList", "MyTuple"]
+A = ','.join(A)
+A = A.replace(A, "first_item friends_list my_tuple")
+A = A.split()
+
+print(A)
