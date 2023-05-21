@@ -155,27 +155,27 @@
 #         print('OK')
 #     if d + 1:
 #         print('Access denied')
-
-files = {}
-result = []
-
-# Files_names = F_n = Імя файлу
-# Files_operation = F_o = допустимі опреації
-# Operation_options = O_o = словарь где ключ это слово, а значение его буквенный вариант
-# necessary_operation = N_o = Необхідна опреація
-
-for i in range(int(input('Кількість файлів: '))):
-    F_n, *F_o = input("Імя файлу та допустимі опреації через пробіл: ").split()
-    files[F_n] = F_o
-
-O_o = {'read':'R','write':'W','execute':'X'}
-
-for i in range(int(input('Кількість запитів до файлів: '))):
-    F_o, F_n = input("Необхідна опреація та імя файлу через пробіл: ").split()
-    F_o = F_o.upper().lower()
-    result.append('OK') if O_o.get(F_o, 'Access denied') in files.get(F_n, 'Access denied') else result.append('Access denied')
-
-print('\n'.join(result))
+#
+# files = {}
+# result = []
+#
+# # Files_names = F_n = Імя файлу
+# # Files_operation = F_o = допустимі опреації
+# # Operation_options = O_o = словарь где ключ это слово, а значение его буквенный вариант
+# # necessary_operation = N_o = Необхідна опреація
+#
+# for i in range(int(input('Кількість файлів: '))):
+#     F_n, *F_o = input("Імя файлу та допустимі опреації через пробіл: ").split()
+#     files[F_n] = F_o
+#
+# O_o = {'read':'R','write':'W','execute':'X'}
+#
+# for i in range(int(input('Кількість запитів до файлів: '))):
+#     F_o, F_n = input("Необхідна опреація та імя файлу через пробіл: ").split()
+#     F_o = F_o.upper().lower()
+#     result.append('OK') if O_o.get(F_o, 'Access denied') in files.get(F_n, 'Access denied') else result.append('Access denied')
+#
+# print('\n'.join(result))
 
 
 # lst =input().split()
@@ -184,4 +184,36 @@ print('\n'.join(result))
 #     if lst.count(i)!=1 and i not in l :
 #         l.append(i)
 # print(' '.join(l))
+#
+import re
 
+# A = ["FirstItem", "FriendsList", "MyTuple"]
+# B = ",".join(A)
+#
+# print(B)
+# def change_case(B):
+#     res=""
+#     for i in B:
+#         if i.isupper():
+#             B.add("_")
+#         else:
+#             res+=i
+#     return res[:]
+#
+# print(*change_case(B))
+
+d = {'Read': 'r', 'wriTe': 'W', 'execute': 'X'}
+d = dict([[k.upper().lower(), v.upper()] for k, v in d.items()])
+print(d)
+
+# b = str(input())
+# b = b.upper().lower()
+# for i in d:
+#     if b in d:
+#        print(b)
+
+# messages = "Это Тестовое Сообщение"
+# print(messages.upper().lower())
+#
+# a = "a"
+# print(a.isupper())
