@@ -218,10 +218,14 @@ import re
 # a = "a"
 # print(a.isupper())
 
-A = ["FirstItem", "FriendsList", "MyTuple"]
-A = ','.join(A)
-A = A.replace('FirstItem,FriendsList,MyTuple', "first_item friends_list my_tuple")
-A = A.split()
+# A = ["FirstItem", "FriendsList", "MyTuple"]
+# A = ','.join(A)
+# A = A.replace('FirstItem,FriendsList,MyTuple', "first_item friends_list my_tuple")
+# A = A.split()
+#
+# print(A)
 
-print(A)
 
+sentence = "The quick brown fox jumps over the lazy dog"
+word_count = sentence.count(" ") + 1
+print("Количество слов в строке:", word_count)
