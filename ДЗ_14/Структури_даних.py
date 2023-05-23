@@ -1,10 +1,4 @@
-# 1. Дано дві множини A і B
-# У багатьох А знаходяться імена боржників за Червень
-#У безлічі B знаходяться імена боржників за Липень
-#
-# Знайти:
-#* Вивести імена людей які повинні за Червень та Липень
-#* Вивести боржників за Липень у яких немає боргу за Червень
+print("Завдання 1:")
 
 A = {'Mark', 'Andy', 'July', 'Kate', 'Billy'} #Червень
 B = {'Mark', 'Fred', 'July', 'Inessa', 'Billy'} #Липень
@@ -12,17 +6,27 @@ B = {'Mark', 'Fred', 'July', 'Inessa', 'Billy'} #Липень
 print(*A.intersection(B))
 print(*B.difference(A))
 
-# 2. Дано: список, в якому знаходяться рядки у форматі CamelCase,
-# потрібно перетворити всі рядки у формат snake_case.
-#
-# Приклад:
-# ["FirstItem", "FriendsList", "MyTuple"]
-#
-# Результат після перетворення:
-# ["first_item", "friends_list", "my_tuple"]
-A = ["FirstItem", "FriendsList", "MyTuple"]
-A = ','.join(A)
-A = A.replace(A, "first_item friends_list my_tuple")
-A = A.split()
+print("\nЗавдання 2:")
 
+A = ["FirstItem", "FriendsList", "MyTuple"]
 print(A)
+
+A_new = []
+for i in A:
+    letter = ''
+    letter += i[0].lower()
+    letter += i[1:]
+    A_new.append(letter)
+
+A = ','.join(A_new)
+
+B = ''
+for i in A:
+    if (i.isupper()):
+        B += '_' + i.lower()
+    else:
+        B += i
+
+B = B.split(',')
+
+print(B)
