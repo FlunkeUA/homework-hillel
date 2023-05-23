@@ -1,3 +1,6 @@
+import random
+from collections import Counter
+
 # Завдання 1
 # Даний файл із довільним текстом, необхідно знайти всі числа у файлі
 # та записати до списку numbers
@@ -16,85 +19,96 @@
 # Запросити у користувача текст та записати його у файл data.txt
 
 # text = input("Введіть текст: ")
-# f_w = open('text.txt', 'a')
-# f_w.write("\n" + text)
+# f_w = open('data.txt', 'a')
+# f_w.write(text)
 # f_w.close()
 
-# Завдання 3
+# print("\nЗавдання 3")
 #
 # Запросити у користувача число N і запитати N чисел у користувача,
 # потім записати їх у файл numbers.txt через пробіл
-# N = input('Кількість чисел: ')
-# numbers = input('Введіть ' + N + ' чисел(a): ').split()
+# N = int(input('Кількість чисел: '))
+# numbers = []
+#
+# for i in range(N):
+#     i = input('Введіть число: ')
+#     numbers.append(i)
+#
 # numbers = " ".join(numbers)
-
-# f_w = open('text.txt', 'a')
-# f_w.write('\n' + numbers)
+#
+# f_w = open('numbers.txt', 'a')
+# f_w.write(numbers)
 # f_w.close()
-
 
 # Завдання 4
 # Згенерувати 100 рандомних чисел та записати їх у файл random_numbers.txt,
 # де один рядок = одне число
-# import random
-#
-# n=[]
+# n = []
 #
 # for i in range(100):
-#    n = n.append(random.randint(1,1000))
+#     n.append(random.randint(1, 100))
 #
-# print(n)
-# type=n
-
-#numbers = " ".join(n)
-
+# n = " \n".join(str(x) for x in n)
+#
 # f_w = open('random_numbers.txt', 'a')
 # f_w.write(n)
 # f_w.close()
 
 # Завдання 5
-#Даний файл із довільним текстом, потрібно знайти кількість слів у файлі та вивести користувачеві
+#Даний файл із довільним текстом, потрібно знайти кількість слів у
+# файлі та вивести користувачеві
 
-# f = open('text.txt')
+# file = open('text.txt')
 #
 # words = 0
 #
-# for line in f:
+# for line in file:
 #     words += len(line.split())
 #
 # print("Кількість слів:", words)
 #
-# f.close()
+# file.close()
 
 #
 # Завдання 6
-# Даний файл, у якому записані числа через пробіл, необхідно вивести користувачу суму цих чисел
-# f_w = open('random_numbers.txt')
-# a = f_w.read()
-# a = list(a)
+# Даний файл, у якому записані числа через пробіл,
+# необхідно вивести користувачу суму цих чисел
+#
+# file = open('numbers.txt')
+# a = file.read()
+# numbers = []
 # s = 0
 #
 # for _ in a:
 #     if _.isdigit():
-#         s += _
+#         numbers.append(_)
 #
-# print(a)
+# numbers = [int(x) for x in numbers]
+#
+# for x in numbers:
+#     s += x
+#
+# print(s)
+# file.close()
 
 # Завдання 7
 #
-# Даний файл у якому записаний текст, необхідно вивести топ 5 рядків, які найчастіше повторюються, приклад:
+# Даний файл у якому записаний текст, необхідно вивести топ 5 рядків,
+# які найчастіше повторюються, приклад:
 #
 # 'в' - 20 разів
-#
 # 'привіт' - 10 разів
-#
 # 'як' - 9 разів
-#
 # 'у' - 7
-#
 # 'world' - 4
-#
 # Краще за все використовувати тип даних Counter з модуля collections. Приклад:
-#
 # Counter(words).most_common(5)
 
+file = open('test.txt')
+a = file.read()
+
+print(a)
+
+b = Counter(a).most_common(5)
+
+print(*b)

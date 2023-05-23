@@ -226,6 +226,67 @@ import re
 # print(A)
 
 
-sentence = "The quick brown fox jumps over the lazy dog"
-word_count = sentence.count(" ") + 1
-print("Количество слов в строке:", word_count)
+# sentence = "The quick brown fox jumps over the lazy dog"
+# word_count = sentence.count(" ") + 1
+# print("Количество слов в строке:", word_count)
+
+# S = '_Here_are, _My_words, _All_time'
+#
+# print(S)
+# print(S + S)
+# print(len(S))
+# print(S*2)
+# print(S[2::3])
+# print(S[::-1])
+#
+# S = S[0] + 'b' + S[2:]
+# print(S)
+# print(S.find('my'))
+# print(S.rfind('my'))
+# #print(s.replace('e', 'Y'[1,2]))
+# print(S.replace('e', 'Y'))
+# #print(S.split(','))
+# print(S.isdigit())
+# print(S.isalpha())
+# print(S.isalnum())
+# print(S.isupper())
+# print(S.isspace())
+# print(S.istitle())
+# for i in S:
+#     if i.lstrip():
+#         S = S.replace('_','')
+#
+# print(S)
+
+# A = ["FirstItem", "FriendsList", "MyTuple"]
+# A = ','.join(A)
+# print(A)
+# A = A.capitalize()
+# B = ""
+#
+# for i, c in enumerate(A):
+#     if i == 0:
+#         B += c.lower()
+#     elif c.isupper():
+#         B += "_" + c.lower()
+#     else:
+#         B += c
+#
+# print("Camel case string:", A)
+# print("Snake case string:", B)
+#
+# inputString = 'СтеНА коВер ПОЛ'
+#
+# letters = ["FirstItem", "FriendsList", "MyTuple"]
+# lettersUpd = []
+# for i in letters:
+#     letter = ''
+#     letter += i[0].lower()
+#     letter += i[1:]
+#     lettersUpd.append(letter)
+# print(' '.join(lettersUpd))
+
+s = " a a a "
+
+x = s.strip()
+print(x)
