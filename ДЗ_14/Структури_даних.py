@@ -1,32 +1,32 @@
 print("Завдання 1:")
 
-A = {'Mark', 'Andy', 'July', 'Kate', 'Billy'} #Червень
-B = {'Mark', 'Fred', 'July', 'Inessa', 'Billy'} #Липень
+june = {'Mark', 'Andy', 'July', 'Kate', 'Billy'} #Червень
+july = {'Mark', 'Fred', 'July', 'Inessa', 'Billy'} #Липень
 
-print(*A.intersection(B))
-print(*B.difference(A))
+print(*june.intersection(july))
+print(*july.difference(june))
 
 print("\nЗавдання 2:")
 
-A = ["FirstItem", "FriendsList", "MyTuple"]
-print(A)
+a = ["FirstItem", "FriendsList", "MyTuple"]
+print(a)
 
-A_new = []
-for i in A:
+a_new = []
+for i in a:
     letter = ''
     letter += i[0].lower()
     letter += i[1:]
-    A_new.append(letter)
+    a_new.append(letter)
 
-A = ','.join(A_new)
+a = ','.join(a_new)
 
-B = ''
-for i in A:
+b = ''
+for i in a:
     if (i.isupper()):
-        B += '_' + i.lower()
+        b += '_' + i.lower()
     else:
-        B += i
+        b += i
 
-B = B.split(',')
+b = b.split(',')
 
-print(B)
+print(b)
