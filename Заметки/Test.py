@@ -288,5 +288,5 @@ import re
 
 s = " a a a "
 
-x = s.strip()
+x = s.replace(" ","")
 print(x)
