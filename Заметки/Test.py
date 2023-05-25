@@ -58,7 +58,6 @@
 # print(B)
 
 
-
 # students = {
 #     'John': {
 #         'Full Name': 'John John',
@@ -257,23 +256,25 @@ import re
 #         S = S.replace('_','')
 #
 # print(S)
+# names = ['Bob', 'Alice', 'Guido']
+# for index, value in enumerate(names, 1):
+#     print(f'{index}: {value}')
 
-# A = ["FirstItem", "FriendsList", "MyTuple"]
-# A = ','.join(A)
-# print(A)
-# A = A.capitalize()
-# B = ""
+# a = ["FirstItem", "FriendsList", "MyTuple"]
+# a = ','.join(a)
 #
-# for i, c in enumerate(A):
-#     if i == 0:
-#         B += c.lower()
-#     elif c.isupper():
-#         B += "_" + c.lower()
-#     else:
-#         B += c
+# # print(list(enumerate(a)))
+# b = ""
 #
-# print("Camel case string:", A)
-# print("Snake case string:", B)
+# for i in a:
+#         if i.isupper():
+#             b += "_"+i.lower()#add _ then convert to lowercase
+#         else:
+#             b += i
+#
+#
+# print("Camel case string:", a)
+# print("Snake case string:", b)
 #
 # inputString = 'СтеНА коВер ПОЛ'
 #
@@ -285,8 +286,27 @@ import re
 #     letter += i[1:]
 #     lettersUpd.append(letter)
 # print(' '.join(lettersUpd))
+# from itertools import chain
+# first = {'A': 1, 'B': 2, 'C': 3}
+# second = {'С': 4, 'E': 5}
+#
+# d = dict(chain(first.items(), second.items()))
+# print(d)
 
-s = " a a a "
+camel_case = ["FirstItem", "FriendsList", "MyTuple"]
+camel_case = ','.join(camel_case)
 
-x = s.replace(" ","")
-print(x)
+#snake_case = []
+
+snake_case = ""
+for i, c in enumerate(camel_case):
+    if i == 0:
+        snake_case += c.lower()
+    elif c.isupper():
+        snake_case += "_" + c.lower()
+    else:
+        snake_case += c
+
+
+print(camel_case)
+print(snake_case)
