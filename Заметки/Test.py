@@ -298,15 +298,26 @@ camel_case = ','.join(camel_case)
 
 #snake_case = []
 
-snake_case = ""
-for i, c in enumerate(camel_case):
-    if i == 0:
-        snake_case += c.lower()
-    elif c.isupper():
-        snake_case += "_" + c.lower()
-    else:
-        snake_case += c
+# snake_case = ""
+# for i, c in enumerate(camel_case):
+#     if i == 0:
+#         snake_case += c.lower()
+#     elif c.isupper():
+#         snake_case += "_" + c.lower()
+#     else:
+#         snake_case += c
 
 
-print(camel_case)
-print(snake_case)
+# print(camel_case)
+# print(snake_case)
+
+
+file = open('test.txt')
+a = file.read()
+a = a.split()
+
+c = Counter(a).most_common(5)
+c = ','.join(map(str, c))
+
+print(c)
+file.close()
