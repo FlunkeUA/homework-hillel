@@ -293,8 +293,19 @@ import re
 # d = dict(chain(first.items(), second.items()))
 # print(d)
 
-camel_case = ["FirstItem", "FriendsList", "MyTuple"]
-camel_case = ','.join(camel_case)
+# camel_case = ["FirstItem", "FriendsList", "MyTuple"]
+# snake_case = []
+#
+# for words in camel_case:
+#     new_words = ""
+#     for char in words:
+#         if char.isupper():
+#             new_words += "_" + char.lower()
+#         else:
+#             new_words += char
+#     snake_case.append(new_words.lstrip("_"))
+#
+# print(snake_case)
 
 #snake_case = []
 
@@ -312,12 +323,12 @@ camel_case = ','.join(camel_case)
 # print(snake_case)
 
 
-file = open('test.txt')
-a = file.read()
-a = a.split()
-
-c = Counter(a).most_common(5)
-c = ','.join(map(str, c))
-
-print(c)
-file.close()
+# file = open('test.txt')
+# a = file.read()
+# a = a.split()
+#
+# c = Counter(a).most_common(5)
+# c = ','.join(map(str, c))
+#
+# print(c)
+# file.close()
