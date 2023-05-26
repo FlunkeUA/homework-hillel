@@ -15,9 +15,8 @@ for words in camel_case:
     new_words = ""
     for char in words:
         if char.isupper():
-            new_words += "_" + char.lower()
-        else:
-            new_words += char
+            new_words += "_"
+        new_words += char.lower()
     snake_case.append(new_words.lstrip("_"))
 
 print(snake_case)
