@@ -5,8 +5,7 @@ import json
 # Дано: довільний список словників.
 # Необхідно записати їх у файл за допомогою модуля pickle.
 # У кожному словнику однаковий набір ключів, а всі значення представлені у вигляді рядків.
-# f = open('cars.bin', 'wb')
-#
+
 # cars = [
 #     {
 #         'license plate': 2222,
@@ -28,8 +27,13 @@ import json
 #     },
 # ]
 #
-# pickle.dump(cars, f)
-# f.close()
+# with open('cars.bin', 'wb') as f:
+#     pickle.dump(cars, f)
+
+f = open('cars.bin', 'rb')
+pickle.load(f)
+print(type(f))
+print(f)
 
 #
 # Завдання: 2
