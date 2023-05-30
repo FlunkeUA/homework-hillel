@@ -1,55 +1,67 @@
 import pickle
 import json
+from collections import defaultdict
 
 # Завдання: 1
-# Дано: довільний список словників.
-# Необхідно записати їх у файл за допомогою модуля pickle.
-# У кожному словнику однаковий набір ключів, а всі значення представлені у вигляді рядків.
 
-# cars = [
-#     {
-#         'license plate': 2222,
-#         'model': 'Jeep',
-#         'color': 'Red',
-#         'year of manufacture': '2010'
-#     },
-#     {
-#         'license plate': 5689,
-#         'model': 'Volvo',
-#         'color': 'Black',
-#         'year of manufacture': '2016'
-#     },
-#     {
-#         'license plate': 4563,
-#         'model': 'BMW',
-#         'color': 'Yellow',
-#         'year of manufacture': '2005'
-#     },
-# ]
-#
-# with open('cars.bin', 'wb') as f:
-#     pickle.dump(cars, f)
+cars = {
+        'license plate': "2222",
+        'model': 'Jeep',
+        'color': 'Red',
+        'year of manufacture': '2010'
+    }, {
+        'license plate': "5689",
+        'model': 'Volvo',
+        'color': 'Black',
+        'year of manufacture': '2016'
+    }, {
+        'license plate': "4563",
+        'model': 'BMW',
+        'color': 'Yellow',
+        'year of manufacture': '2005'
+    }
 
-f = open('cars.bin', 'rb')
-pickle.load(f)
-print(type(f))
-print(f)
+with open('cars.bin', 'wb') as f:
+    pickle.dump(cars, f)
 
-#
 # Завдання: 2
-# Дано два словники
-# A = {'key': 1}
-# B = {'key1: 2}
-# Необхідно написати код який їх об'єднуватиме
-#
-# C = {'key': 1, 'key1': 2}
-# Але потрібно також враховувати колізії,
-# наприклад ситуація коли у нас два однакові ключі
-# і щоб не втратити значення потрібно записати в один
-# ключ список в якому будуть значення
-#
-# Наприклад:
-# A = {'key': 1, 'key2': True}
-# B = {'key': 'Hello'}
-# C = {'key': [1, 'Hello'], 'key2': True}
-# Записати результат у файл result.json у форматі JSON.
+
+car1 = {
+        'license plate': 2222,
+        'model': 'Jeep',
+        'color': 'Red',
+        'year of manufacture': 2010
+    }
+car2 = {
+        'license plate': 5689,
+        'model': 'Volvo',
+        'color': 'Black',
+        'year of manufacture': 2016
+    }
+car3 = {
+        'license plate': 4563,
+        'model': 'BMW',
+        'engine capacity': 3.0,
+        'year of manufacture': 2005
+    }
+
+all_cars = car1|car2|car3
+
+keys_dicts = list()
+for key in all_cars:
+    if key not in keys_dicts:
+        keys_dicts.append(key)
+    else:
+        key = key
+
+merged_dict = defaultdict(list)
+for key in all_cars:
+    if key in car1:
+        merged_dict[key].append(car1[key])
+    if key in car2:
+        merged_dict[key].append(car2[key])
+    if key in car3:
+        merged_dict[key].append(car3[key])
+
+with open('merged_dict.json', 'w') as f:
+    f.write(json.dumps(merged_dict))

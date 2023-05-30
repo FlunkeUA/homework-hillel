@@ -331,3 +331,49 @@ import re
 #
 # print(c)
 # file.close()
+
+# d1 = {'key': 1, 'key2': True}
+# d2 = {'key': 'Hello', 'key2': 11, 'key':'World'}
+
+dict1 = {
+    'Student': 'Butler',
+    'Course': 'Computer Science',
+    'Address': 'Los Angeles'
+}
+dict2 = {
+    'Course': 'Rosy',
+    'Subject': 'Computer Science'
+}
+
+dict3 = dict1.copy()  # Copy the dict1 into the dict3 using copy() method
+
+for key, value in dict2.items():  # use for loop to iterate dict2 into the dict3 dictionary
+    dict3[key] = value
+
+print("After merging of the two Dictionary ")
+print(dict3)  # print the merge dictionary
+
+
+
+
+
+# def task(d1,d2):
+#     k=set(list(d1.keys())+list(d2.keys()))
+#     print(k)
+#     d={}
+#     for a in k:
+#         v1=d1.get(a)
+#         v2=d2.get(a)
+#         if v1==None:
+#             v=v2
+#         elif v2==None:
+#             v=v1
+#         elif type(v1)==int and type(v2)==int:
+#             v=v1+ "," +v2
+#         else:
+#             v = (str(v1) + "," + str(v2)).split(",")
+#         d[a]=v
+#     return d
+
+# print(task(d1,d2))
+
