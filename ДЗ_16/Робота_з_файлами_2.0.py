@@ -47,13 +47,6 @@ car3 = {
 
 all_cars = car1|car2|car3
 
-keys_dicts = list()
-for key in all_cars:
-    if key not in keys_dicts:
-        keys_dicts.append(key)
-    else:
-        key = key
-
 merged_dict = defaultdict(list)
 for key in all_cars:
     if key in car1:
