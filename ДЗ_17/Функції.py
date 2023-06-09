@@ -2,7 +2,7 @@
 print("Завдання 1:")
 
 lst = ["home", "car", "dog", "cat", "roof"]
-
+print(lst)
 def change(lst):
     for item in lst:
         first_item = lst[0]
