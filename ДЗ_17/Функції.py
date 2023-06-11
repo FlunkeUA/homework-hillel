@@ -35,11 +35,11 @@ start = int(input("Введіть початкове число: "))
 end = int(input("Введіть кінцеве число: "))
 
 def sum_range(start, end):
-    sum = 0
+    sum_numbers = 0
     if start > end:
         start, end = end, start
     for i in range(start, end + 1):
-        sum += i
-    return print("Сума чисел:", sum)
+        sum_numbers += i
+    return print("Сума чисел:", sum_numbers)
 
 sum_range(start, end)
