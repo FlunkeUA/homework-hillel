@@ -17,10 +17,7 @@ def to_dict(lst):
 start = int(input("Введіть початкове число: "))
 end = int(input("Введіть кінцеве число: "))
 
-def sum(start,end):
-    sum_numbers = 0
+def sum_range(start, end):
     if start > end:
         start, end = end, start
-    for i in range(start, end + 1):
-        sum_numbers += i
-    return sum_numbers
+    return sum(range(start, end+1))
