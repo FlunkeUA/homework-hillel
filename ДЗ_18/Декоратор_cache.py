@@ -8,7 +8,7 @@ def cahce_dec(f):
 
 @cahce_dec
 def sum_range(a, b):
-    print(f'Вызвана функция triangle_area с аргументами {a} и {b}')
+    print(f'Вызвана функция sum_range с аргументами {a} и {b}')
     if a > b:
         a, b = b, a
     return sum(range(a, b+1))
