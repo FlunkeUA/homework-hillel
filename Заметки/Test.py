@@ -335,23 +335,23 @@ import re
 # d1 = {'key': 1, 'key2': True}
 # d2 = {'key': 'Hello', 'key2': 11, 'key':'World'}
 
-dict1 = {
-    'Student': 'Butler',
-    'Course': 'Computer Science',
-    'Address': 'Los Angeles'
-}
-dict2 = {
-    'Course': 'Rosy',
-    'Subject': 'Computer Science'
-}
-
-dict3 = dict1.copy()  # Copy the dict1 into the dict3 using copy() method
-
-for key, value in dict2.items():  # use for loop to iterate dict2 into the dict3 dictionary
-    dict3[key] = value
-
-print("After merging of the two Dictionary ")
-print(dict3)  # print the merge dictionary
+# dict1 = {
+#     'Student': 'Butler',
+#     'Course': 'Computer Science',
+#     'Address': 'Los Angeles'
+# }
+# dict2 = {
+#     'Course': 'Rosy',
+#     'Subject': 'Computer Science'
+# }
+#
+# dict3 = dict1.copy()  # Copy the dict1 into the dict3 using copy() method
+#
+# for key, value in dict2.items():  # use for loop to iterate dict2 into the dict3 dictionary
+#     dict3[key] = value
+#
+# print("After merging of the two Dictionary ")
+# print(dict3)  # print the merge dictionary
 
 
 
@@ -377,3 +377,34 @@ print(dict3)  # print the merge dictionary
 
 # print(task(d1,d2))
 
+# lst = ["home", "car", "dog"]
+#
+# def to_dict(lst):
+#     to_dict = {item:item for item in lst}
+#     return to_dict
+# print(to_dict(lst))
+
+# fruits = ["Apple", "Pear", "Peach", "Banana"]
+# fruit_dictionary = dict.fromkeys(fruits)
+# print(fruit_dictionary)
+
+def memoize_func(f):
+    memo = dict()
+    def func(*args):
+        if args not in memo:
+            memo[args] = f(*args)
+        return memo[args]
+
+    return func
+
+@memoize_func
+def func(a, b):
+    print(f'Вызвана функция triangle_area с аргументами {a} и {b}')
+    return a ** b
+
+print(func(3, 5), '\n')
+print(func(3, 4), '\n')
+print(func(3, 2), '\n')
+print(func(3, 5), '\n')
+print(func(3, 4), '\n')
+print(func(3, 5), '\n')
