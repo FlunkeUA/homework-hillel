@@ -1,9 +1,10 @@
 def cahce_dec(f):
-    cache = dict()
+    cache = {}
     def cache_func(*args, **kwargs):
-        if args not in cache:
-            cache[args] = f(*args, **kwargs)
-        return cache[args]
+        cache_key = args + tuple(kwargs.items())
+        if cache_key not in cache:
+            cache[cache_key] = f(*args, **kwargs)
+        return cache[cache_key]
     return cache_func
 
 @cahce_dec
@@ -14,19 +15,19 @@ def sum_range(a, b):
     return sum(range(a, b+1))
 
 @cahce_dec
-def numbers_range(start, end):
-    print(f'Вызвана функция numbers_range с аргументами {start} и {end}')
+def numbers_range(a, b):
+    print(f'Вызвана функция numbers_range с аргументами {a} и {b}')
     numbers = []
-    if start > end:
-        start, end = end, start
-    for i in range(start, end + 1):
+    if a > b:
+        start, end = a, b
+    for i in range(a, b + 1):
         if i % 2 == 0:
             numbers.append(i)
     return numbers
 
-print("Результат выполнения:", sum_range(a = 2, b = 5))
-print("Результат выполнения:", sum_range(8, 9))
-print("Результат выполнения:", numbers_range(2, 16))
-print("Результат выполнения:", numbers_range(2, 8))
-print("Результат выполнения:", sum_range(2, 5))
-print("Результат выполнения:", numbers_range(2, 16))
+print("Результат выполнения 1:", sum_range(a = 2, b = 5))
+print("Результат выполнения 2:", sum_range(b = 8, a = 9))
+print("Результат выполнения 3:", numbers_range(2, 16))
+print("Результат выполнения 4:", numbers_range(2, 8))
+print("Результат выполнения 5:", sum_range(2, 5))
+print("Результат выполнения 6:", numbers_range(2, 16))
