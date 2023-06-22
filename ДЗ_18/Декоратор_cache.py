@@ -4,7 +4,6 @@ def cahce_dec(func):
         cache_key = args + tuple(kwargs.items())
         if cache_key not in cache:
             cache[cache_key] = func(*args, **kwargs)
-            print('Память кэша:', cache)
         return cache[cache_key]
     return cache_func
 
