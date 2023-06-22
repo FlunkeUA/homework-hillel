@@ -20,31 +20,32 @@ class Board:
     def check_if_game_is_over(self):
         if self.last_move_coordinates is None:
             return
-
         in_a_raw_to_win = 5 if self.field_demension >= 5 else 3
 
         symbol_to_check = self.field[self.last_move_coordinates[0]][self.last_move_coordinates[1]]
 
-        currently_in_a_raw = 0
         for coordinates_to_change in ((0, ), (1, ), (0,1)):
+            currently_in_a_raw = 0
             coordinates_to_check = list(self.last_move_coordinates)
         for i in range(-in_a_raw_to_win + 1, in_a_raw_to_win):
             for single_coordinate in coordinates_to_change:
-                coordinates_to_check[single_coordinate] += i
+                coordinates_to_check[single_coordinate] = self.last_move_coordinates[single_coordinate] + i
 
             raw_to_check, col_to_check = coordinates_to_check
 
-            if not self.is_coords_inside(raw_to_check, col_to_check):
-                return
+            if not self.is_coords_inside((raw_to_check, col_to_check)):
+                continue
 
             if self.field[raw_to_check][col_to_check] == symbol_to_check:
                 currently_in_a_raw += 1
+                if currently_in_a_raw == in_a_raw_to_win:
+                    self.game_is_over = True
+                    self.result = f'Winner: {symbol_to_check}'
+                    break
             else:
                 currently_in_a_raw = 0
-
-            if currently_in_a_raw == in_a_raw_to_win:
-                self.game_is_over = True
-                self.result = f'Winner: {symbol_to_check}'
+            if self.game_is_over is True:
+                break
 
 class View:
     def draw_board(self, board):
@@ -73,16 +74,16 @@ class Controller:
 
         inputted_raw, inputted_colum = None, None
         while True:
-            inputed_coordinates = input()
+            inputted_coordinates = input()
             try:
-                inputted_raw, inputted_colum = inputed_coordinates.split(',')
+                inputted_raw, inputted_colum = inputted_coordinates.split(',')
                 inputted_raw = int(inputted_raw)
                 inputted_colum = int(inputted_colum)
             except Exception:
                 self.view.print_message('Input coordinates in format raw,colum')
                 continue
 
-            if not self.board.is_coords_inside(inputted_raw, inputted_colum):
+            if not self.board.is_coords_inside((inputted_raw, inputted_colum)):
                 self.view.print_message('Coordinates must bee in field size')
                 continue
 
@@ -101,6 +102,7 @@ class Controller:
             next_move = self.get_next_move()
             self.place_move(next_move)
             self.board.check_if_game_is_over()
+        self.view.draw_board(self.board)
 
         self.view.print_message(f'Result - {self.board.result}')
 

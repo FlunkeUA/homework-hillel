@@ -390,12 +390,15 @@ import re
 
 def memoize_func(f):
     memo = dict()
-    def func(*args):
-        if args not in memo:
-            memo[args] = f(*args)
-        return memo[args]
 
-    return func
+    def wrapper(*args, **kwargs):
+        cache_key = args + tuple(kwargs.items())
+        if cache_key not in wrapper.cache:
+            wrapper.cache[cache_key] = func(*args, **kwargs)
+        return wrapper.cache[cache_key]
+
+    wrapper.cache = dict()
+    return wrapper
 
 @memoize_func
 def func(a, b):
