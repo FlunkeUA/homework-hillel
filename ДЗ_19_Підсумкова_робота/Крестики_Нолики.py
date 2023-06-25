@@ -53,7 +53,6 @@ def legal_moves(board):
             moves.append(square)
     return moves
 
-
 def winner(board):
     """Определяет победителя в игре."""
     WAYS_TO_WIN = ((0, 1, 2),
@@ -138,6 +137,14 @@ def congrat_winner(the_winner, computer, human):
     elif the_winner == human:
         print("Победа! Выиграл Человек!")
 
+def replay():
+    replay = input("Желаете переиграть? (Y or N)").upper()
+    for _ in replay:
+        if replay == "Y":
+            main()
+        else:
+            exit()
+
 def main():
     computer, human = pieces()
     turn = X
@@ -154,8 +161,7 @@ def main():
         turn = next_turn(turn)
     the_winner = winner(board)
     congrat_winner(the_winner, computer, human)
-
+    replay()
 
 # запуск программы
 main()
-input("Нажмите Enter, чтобы выйти.")
