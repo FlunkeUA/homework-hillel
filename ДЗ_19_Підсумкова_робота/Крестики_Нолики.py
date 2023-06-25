@@ -82,7 +82,7 @@ def computer_move(board, computer, human):
     # создадим рабочую копию доски, потому что функция будет менять некотороые элементы в списке
     board = board[:]
     # ходы, от лучшего к худшему
-    BEST_MOVES = (4, 0, 2, 6, 8, 1, 3, 5, 7)
+    best_moves = (4, 0, 2, 6, 8, 1, 3, 5, 7)
 
     print("Компьютер выбрал поле №:", end=" ")
     # если сдедующим ходом может победить компьютер, выберем этот ход
@@ -105,7 +105,7 @@ def computer_move(board, computer, human):
 
     # поскольку следующим ходом ни одна из сторон не может победить,
     # выберем лучшее из доступных полей
-    for move in BEST_MOVES:
+    for move in best_moves:
         if move in legal_moves(board):
             print(move)
             return move
@@ -118,7 +118,7 @@ def next_turn(turn):
         return 'X'
 
 def congrat_winner(the_winner, computer, human):
-    """Поздравляет победителя игры."""
+    """Поздравляем победителя игры."""
     if the_winner != TIE:
         print("\nТри", the_winner, "в ряд!")
     else:
@@ -129,12 +129,15 @@ def congrat_winner(the_winner, computer, human):
         print("Победа! Выиграл Человек!")
 
 def replay():
-    replay = input("\nЖелаете переиграть? (Y или N)").upper()
-    for _ in replay:
-        if replay == "Y":
+    """Предлагаем сыграть заново"""
+    replay_game = input("\nЖелаете переиграть? (Y или N)").upper()
+    for _ in replay_game:
+        if replay_game == "Y":
             main()
         else:
+            print("Игра закончена!")
             break
+
 
 def main():
     computer, human = pieces()
