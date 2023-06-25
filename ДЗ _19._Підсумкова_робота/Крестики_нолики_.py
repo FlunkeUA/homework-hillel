@@ -32,15 +32,14 @@ def check_win(board):
     win = False
 
     win_combination = (
-        (0,1,2), (3,4,5), (7,8,9),
-        (0,3,6), (1,4,7), (2,5,8),
-        (0,4,8), (2,4,6)
+        (0,1,2), (3,4,5), (7,8,9), # проверка по горизонтали
+        (0,3,6), (1,4,7), (2,5,8),# проверка по вертикали
+        (0,4,8), (2,4,6) # проверка по диагонали
     )
 
     for pos in win_combination:
         if (board[pos[0]] == board[pos[1]] and board[pos[1]] == board[pos[2]]):
             win = board[pos[0]]
-
     return win
 
 def computer_step(human, ai):
@@ -57,21 +56,19 @@ def computer_step(human, ai):
             # клонирование игровой доски
             board_ai = board[:]
             board_ai[pos] = char
-            if (check_win(board_ai) != False):
+            if (check_win(board) != False):
                 return pos
 
    # если мы тут, значит не нашли вариант для победы
     for pos in win_steps:
        if (pos in available_steps):
            return pos
-
     return False
 
 def next_player(current_player):
     # определяем чей следующий ход
     if (current_player == 'X'):
         return 'O'
-
     return 'X'
 
 def start_game(mode):
@@ -82,7 +79,7 @@ def start_game(mode):
     step = 1
     draw_board()
 
-    while (step <= 9) and (check_win(board) == False):
+    while (step < 10) and (check_win(board) == False):
         index = input('Ходит игрок ' + current_player + '. Введите номер поля (0 - выход):')
 
         '''ПРОВЕРКА НА ВВОД ЦИФРЫ, НЕ БУКВЫ ИЛИ ЗНАКА'''
@@ -113,7 +110,7 @@ def start_game(mode):
     if (step == 10):
         print('Игра оконченаю Ничья!')
     elif check_win(board) != False:
-        print('Win ' + check_win(board))
+        print('Победа! Выиграл: ' + check_win(board))
 
 print('Игра начинается!\n')
 
