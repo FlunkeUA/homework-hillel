@@ -1,31 +1,6 @@
 from random import randint
 
 
-# запрашиваем куда будет ход
-def ask_number(question, low, high):
-    response = None
-    while response not in range(low, high):
-        try:
-            response = int(input(question))
-        except ValueError:
-            print("Вы ввели не число из диапазона 0-8!!!")
-    return response
-
-
-# определяем кто будет ходить первый
-def first_move():
-    go_first = randint(0, 1)
-    if go_first == 1:
-        print("\nПервым ходит Человек!")
-        human = 'X'
-        computer = 'O'
-    else:
-        print("\nПервым ходит Компьютер!")
-        computer = 'X'
-        human = 'O'
-    return computer, human
-
-
 # создаем игровую доску
 def new_board():
     board = []
@@ -43,6 +18,20 @@ def display_board(board):
     print("\t", board[6], "|", board[7], "|", board[8])
 
 
+# определяем кто будет ходить первый
+def first_move():
+    go_first = randint(0, 1)
+    if go_first == 1:
+        print("\nПервым ходит Человек!")
+        human = 'X'
+        computer = 'O'
+    else:
+        print("\nПервым ходит Компьютер!")
+        computer = 'X'
+        human = 'O'
+    return computer, human
+
+
 # создаем список доступных ходов
 def available_moves(board):
     moves = []
@@ -50,23 +39,6 @@ def available_moves(board):
         if board[square] == " ":
             moves.append(square)
     return moves
-
-
-# определяем победителя
-def winner(board):
-    win_combination = (
-        (0, 1, 2), (3, 4, 5), (6, 7, 8),  # по горизонтали
-        (0, 3, 6), (1, 4, 7), (2, 5, 8),  # по вертикали
-        (0, 4, 8), (2, 4, 6)  # по диагонали
-    )
-
-    for row in win_combination:
-        if board[row[0]] == board[row[1]] == board[row[2]] != " ":
-            win = board[row[0]]
-            return win
-        if " " not in board:
-            return "TIE"
-    return None
 
 
 # алгоритм хода человека
@@ -80,6 +52,15 @@ def human_move(board):
     print("Вы выбрали поле №:", move)
     return move
 
+# запрашиваем куда будет ход
+def ask_number(question, low, high):
+    response = None
+    while response not in range(low, high):
+        try:
+            response = int(input(question))
+        except ValueError:
+            print("Вы ввели не число из диапазона 0-8!!!")
+    return response
 
 # алгоритм хода компьютера
 def computer_move(board, computer, human):
@@ -123,6 +104,22 @@ def next_turn(turn):
     else:
         return 'X'
 
+
+# определяем победителя
+def winner(board):
+    win_combination = (
+        (0, 1, 2), (3, 4, 5), (6, 7, 8),  # по горизонтали
+        (0, 3, 6), (1, 4, 7), (2, 5, 8),  # по вертикали
+        (0, 4, 8), (2, 4, 6)  # по диагонали
+    )
+
+    for row in win_combination:
+        if board[row[0]] == board[row[1]] == board[row[2]] != " ":
+            win = board[row[0]]
+            return win
+        if " " not in board:
+            return "TIE"
+    return None
 
 # варианты результатов игры
 def congrat_winner(the_winner, computer, human):
